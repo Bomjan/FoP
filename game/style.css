@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "hacker";
+  src: url("./Fonts/hacker/Hacker-Black.ttf");
+}
+
+@font-face {
+  font-family: "consl";
+  src: url('./Fonts/retraconsole/RetraConsole.ttf');
+}
+
+*{
+  background-color: #181e23;
+  color: rgb(168, 178, 160);
+}
+
+.title-box {
+  display: flex;
+  justify-content: center;
+  font-family: 'hacker';
+  text-align: center;
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid rgba(83, 77, 134, 0.793);
+}
+.title-box:hover {
+  border: 2px solid rgba(121, 113, 113, 0.593);
+}
+.title{
+  color: #6e1616;
+  text-shadow: 0 2px 5px #215d32;
+}
+.statistics{
+  font-family: 'hacker';
+  border-radius: 12px;
+  border: 2px solid rgba(43, 89, 87, 0.73);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2px 10px;
+  margin: 10px 15px 0;
+}
+.statistics:hover{
+  border: 2px solid rgba(32, 105, 47, 0.682);
+}
+.auth{
+  margin-top: 10px;
+}
+.score #score{
+  text-align: center;
+}
+
+.container{
+  /* width: 100%; */
+  height: 470px;
+  margin-top: 5px;
+  border: 1px solid rgba(10, 47, 231, 0.537);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 4px 12px;
+  margin: 4px;
+}
+.tab {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  /* border-top: 1px solid green; */
+  font-family: 'hacker';
+}
+
+.tab div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  flex: 1;
+}
+.tab div p{
+  padding: 2px;
+  margin: 4px;
+}
+.tab div:hover{
+  background-color: #29515482;
+}
+.tab div:hover p {
+  background-color: #ffffff00;
+}
+
+input[type='radio']{
+  display: none;
+}
+
+#guess:checked ~ #force{
+  display: none;
+}
+#force:checked ~ #guess{
+  display: none;
+}

@@ -49,3 +49,11 @@ const squareAndSum = (...nums) => {
   }
   return sum;
 }
+
+const calAreaTrapezium = (a, b, h) => (a + b)/2 * h;
+
+let a = Number(prompt("Enter first parallel length: "))
+let b = Number(prompt("Enter second parallel length: "))
+let h = Number(prompt("Enter height of the trapeziod: "))
+
+console.log(`The area of trapezoid is ${calAreaTrapezium(a, b, h)}`)
