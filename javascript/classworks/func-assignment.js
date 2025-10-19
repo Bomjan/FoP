@@ -50,10 +50,18 @@ const squareAndSum = (...nums) => {
   return sum;
 }
 
-const calAreaTrapezium = (a, b, h) => (a + b)/2 * h;
+// const calAreaTrapezium = (a, b, h) => (a + b)/2 * h;
 
-let a = Number(prompt("Enter first parallel length: "))
-let b = Number(prompt("Enter second parallel length: "))
-let h = Number(prompt("Enter height of the trapeziod: "))
+// let a = Number(prompt("Enter first parallel length: "))
+// let b = Number(prompt("Enter second parallel length: "))
+// let h = Number(prompt("Enter height of the trapeziod: "))
 
-console.log(`The area of trapezoid is ${calAreaTrapezium(a, b, h)}`)
+// console.log(`The area of trapezoid is ${calAreaTrapezium(a, b, h)}`)
+
+const dtb =(n) => {
+  if (n == 0) return "0";
+  if (n == 1) return "1";
+  return dtb(Math.floor(n/2)) + (n%2);
+}
+
+console.log(dtb(10));
