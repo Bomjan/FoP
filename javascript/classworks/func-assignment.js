@@ -64,4 +64,20 @@ const dtb =(n) => {
   return dtb(Math.floor(n/2)) + (n%2);
 }
 
-console.log(dtb(10));
+// console.log(dtb(10));
+
+// let me show you how this works for number 5:
+// * 1. dtb(5) -> dtb(2) + 1
+// * 2. dtb(2) -> dtb(1) 0 + 1
+// * 3. dtb(1) -> returns "1" from the condition set, so, => 101 will be shown. I'll explain tomorrow again if you don't get
+
+// console.log(dtb(5))
+
+
+
+const fac = (n) => {
+  if (n == 1) return 1;
+  return n * fac(n-1)
+}
+
+console.log(fac(4))
