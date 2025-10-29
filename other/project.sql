@@ -42,7 +42,7 @@ CREATE TABLE Record(
   PRIMARY KEY(Patient_ID, Doctor_ID, Medicine_ID),
 
   FOREIGN KEY(Doctor_ID) REFERENCES Doctor(Doctor_ID),
-  FOREIGN KEY(Medicine_ID) REFERENCES Medicine(Medicine_ID)),
+  FOREIGN KEY(Medicine_ID) REFERENCES Medicine(Medicine_ID),
   FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
 
   Recorded_At DATE,
