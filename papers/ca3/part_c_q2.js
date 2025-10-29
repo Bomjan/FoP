@@ -33,3 +33,8 @@ const weekMax = (data) => {
 
 console.log(cityAverages(temperatures));
 console.log(weekMax(temperatures));
+
+// Explanation:
+// cityAverages -> outer loop iterates over the cities (each row) and it creates a variable called sum with initial value 0. the inner value iterates over the eacch value of the row and adds up in sum variable. then sum / numberOfDays is appended in an empty array which is then returned later.
+
+// weekAverages -> outer loop iterates over each city (each row) and it sets a max value as first value. then the inner loop iterates over each value and updates it only if it is greater (logically updates). then the final max value is figured out and then appended to an array and then returned at the end.
