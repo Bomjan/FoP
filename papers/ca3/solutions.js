@@ -9,6 +9,7 @@ const avg = (data) => {
   }
   return avgs;
 };
+
 const weekMax = (data) => {
   let maxs = [];
   for (let city of data) {
@@ -20,6 +21,7 @@ const weekMax = (data) => {
   }
   return maxs;
 };
+
 console.log(
   weekMax([
     [3, 6, 8, 8],

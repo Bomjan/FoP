@@ -1,3 +1,6 @@
+CREATE DATABASE Record_System;
+USE Record_System;
+
 CREATE TABLE User(
   User_ID INT NOT NULL PRIMARY KEY,
   User_fName VARCHAR(12) NOT NULL,
@@ -34,25 +37,24 @@ CREATE TABLE Medicine(
 
 CREATE TABLE Record(
   Patient_ID INT NOT NULL,
-  FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
-
   Doctor_ID INT NOT NULL,
-  FOREIGN KEY(Doctor_ID) REFERENCES Doctor(Doctor_ID),
-
   Medicine_ID INT NOT NULL,
-  FOREIGN KEY(Medicine_ID) REFERENCES Medicine(Medicine_ID),
+  PRIMARY KEY(Patient_ID, Doctor_ID, Medicine_ID),
+
+  FOREIGN KEY(Doctor_ID) REFERENCES Doctor(Doctor_ID),
+  FOREIGN KEY(Medicine_ID) REFERENCES Medicine(Medicine_ID)),
+  FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
 
   Recorded_At DATE,
   Duration INT
 );
 
 CREATE TABLE Appoinment(
-  Appoinment_ID INT NOT NULL PRIMARY KEY,
 
   Doctor_ID INT NOT NULL,
-  FOREIGN KEY(Doctor_ID) REFERENCES Doctor(Doctor_ID),
-
   Patient_ID INT NOT NULL,
+  PRIMARY KEY(Doctor_ID, Patient_ID),
+  FOREIGN KEY(Doctor_ID) REFERENCES Doctor(Doctor_ID),
   FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
 
   Appoinment_Status VARCHAR(10),
