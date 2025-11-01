@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PINCODE CRACKER</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
-</head>
-<body>
-  <div class="title-box">
-    <h1 class="title">PINCODE CRACKER</h1>
-  </div>
-  <div class="statistics">
-    <div class="auth" id="auth">
-      <h3>Welcome Bomjan</h3>
-    </div>
-    <div class="score">
-      <p>HIGHEST SCORE</p>
-      <p id="score">0</p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="tab">
-      <div>
-        <p>Status: </p> <p id="status"> Pending</p>
-      </div>
-      <div><p>Score: </p> <p id="scr">406</p></div>
-    </div>
-    <div class="box">
-      <input type="radio" name="mode" id="guess"  checked>
-      <input type="radio" name="mode" id="force"         >
-
-      <div id="guess" class="guess">
-        <div class="stats">
-          <p class="limit-count">45</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Bomb Diffuser</li>
+          <li>Highest Score:<span id="highest-score">0</span></li>
+          <li>Profile</li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="task-container">
+        <div class="question-progress">
+          <span id="current-progress">1/8</span>
         </div>
+        <div class="start" id="start">START</div>
 
-        <label for="force">Try Brute Force</label>
+        <div class="questions">
+          <div class="question" id="question">
+            Please start to answer the game
+          </div>
+          <div class="choices">
+            <ol id="options">
+              <li>A</li>
+              <li>B</li>
+              <li>C</li>
+              <li>D</li>
+            </ol>
+          </div>
+        </div>
       </div>
 
-      <div id="force" class="force">
-
-
-        <label for="guess">Try guessing</label>
+      <div class="bomb-container">
+        <div class="timer"><span id="count-down">Counter start</span>s</div>
+        <div class="bomb">
+          <img
+            id="bomb-image"
+            src="https://i.postimg.cc/SK7SmnbW/timebomb.png"
+            alt="Bomb"
+            class="not-exploded"
+          />
+          <audio
+            id="bomb-sound"
+            src="./beep-sound.mp3"
+            style="display: none"
+          ></audio>
         </div>
+      </div>
     </div>
-  </div>
-</body>
+
+    <script type="module" src="main.js"></script>
+  </body>
 </html>

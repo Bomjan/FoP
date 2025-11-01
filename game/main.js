@@ -1,66 +1,84 @@
+import { mcqQuestions } from "./questions.js";
 
+const highestScore = document.getElementById("highest-score");
+const currentProgress = document.getElementById("current-progress");
+const start = document.getElementById("start");
+const countDown = document.getElementById("count-down");
+const bomb = document.getElementById("bomb-image");
+const beep = document.getElementById("bomb-sound");
+const question = document.getElementById("question");
+const options = document.getElementById("options");
 
-const generateCapcha = (n=6) => {
-  const wordList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+<>?[]{}~';
-  let capcha = '';
-  for (let i = 0; i < n; i++){
-    capcha += wordList[Math.floor(Math.random()*wordList.length)];
-  }
-  return capcha;
-}
-const level = [
-  {'lv': 1, 'attempts': 50000, 'capcha': generateCapcha(6)} ,
-  {'lv': 2, 'attempts': 9000,  'capcha': generateCapcha(9)} ,
-  {'lv': 3, 'attempts': 5000,  'capcha': generateCapcha(12)},
-]
+const exploded = "https://i.postimg.cc/L5v9PTkR/exploded.png";
 
-const createPin = () => {
-  const numbers = '0123456789';
-  let pin = ''
-  for (let i = 0; i < 6; i++){
-    pin += numbers[Math.floor(Math.random() * numbers.length)]
-  }
-  return pin;
-}
-let mypass = createPin();
+let numberOfQuestion = 0;
+const totalQuestions = 8;
+let answered = [];
+let correct = [];
+let answeredAll = false;
+let timerID;
 
-const checkPin = (pin, atckPin = createPin()) => {
-  [pin, atckPin] = [pin.split(''), atckPin.split('')];
-  let closeness = 0;
-  const formula = (a, b) => 1-Math.abs(a -b)/9;
-  for (let i in pin){
-    closeness += formula(parseInt(pin[i]), parseInt(atckPin[i]));
-  }
-  return [100 * closeness/pin.length, atckPin.join('')];
-}
-
-const bruteForce = (lv, mypass) => {
-  let data = level[lv-1];
-  let avgAccuracy = 0
-  let success = false;
-  let pin = "Not Found!"
-  let i = 0;
-  for (; i < data.attempts; i++){
-    let result = checkPin(mypass);
-    if(i == data.attempts/2){
-      console.log(data.capcha);
-    }
-    if (result[0] == 100){
-      pin = result[1];
-      success = true;
-      break;
-    }
-    avgAccuracy += result[0];
-  }
-  return [avgAccuracy/i, i, success, pin, mypass];
-}
-
-const guessPin = (pin) => {
-  if (pin.length == 6){
-    let result = checkPin(pin);
-    console.log(result, pin)
+start.addEventListener("click", () => {
+  bomb.classList.add("started");
+  bomb.src = "https://i.postimg.cc/SK7SmnbW/timebomb.png";
+  beep.currentTime = 0;
+  beep.play();
+  counter(20);
+  ask();
+});
+const investigate = () => {
+  clearTimeout(timerID);
+  bomb.classList.remove("started");
+  if (
+    (answered.length == totalQuestions && answered == correct) ||
+    answeredAll
+  ) {
+    bomb.src =
+      "https://media.tenor.com/_r-UUCjuC9MAAAAM/congratulations-congrats.gif";
+    bomb.style.width = "400px";
+    bomb.style.height = "300px";
+    bomb.style.marginLeft = "calc(50% - 200px)";
   } else {
-    console.log("pin must be 6 digit long")
+    bomb.src = exploded;
   }
-}
-console.log(bruteForce(1, mypass));
+};
+const counter = (time) => {
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  countDown.textContent = `${String(minutes).padStart(2, "0")}:${String(
+    seconds
+  ).padStart(2, "0")}`;
+
+  if (time === 0) {
+    investigate();
+  } else {
+    timerID = setTimeout(() => counter(time - 1), 1000);
+  }
+};
+
+const questionSet = () => {
+  let q = mcqQuestions[Math.floor(Math.random() * mcqQuestions.length)];
+
+  return [q.question, q.options, q.answer];
+};
+
+const ask = () => {
+  if (numberOfQuestion > totalQuestions) {
+    investigate();
+  }
+  numberOfQuestion++;
+  currentProgress.textContent = `${numberOfQuestion} / ${totalQuestions}`;
+
+  const [ques, opt, ans] = questionSet();
+  question.textContent = ques;
+
+  for (let i = 0; i < 4; i++) {
+    const x = options.children[i];
+    x.textContent = opt[i];
+    x.onclick = () => {
+      answered.push(x.textContent);
+      correct.push(ans);
+      ask();
+    };
+  }
+};
