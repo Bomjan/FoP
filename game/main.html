@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bomb Diffuser</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,22 +11,22 @@
       <nav>
         <ul>
           <li>Bomb Diffuser</li>
-          <li>Highest Score:<span id="highest-score">0</span></li>
-          <li>Profile</li>
+          <li>Highest Score: <span id="highest-score">0</span></li>
+          <li id="profile-btn" style="cursor: pointer; user-select: none">
+            Profile
+          </li>
         </ul>
       </nav>
     </header>
+
     <div class="container">
       <div class="task-container">
         <div class="question-progress">
           <span id="current-progress">1/8</span>
         </div>
-        <div class="start" id="start">START</div>
 
         <div class="questions">
-          <div class="question" id="question">
-            Please start to answer the game
-          </div>
+          <div class="question" id="question">Please start the game</div>
           <div class="choices">
             <ol id="options">
               <li>A</li>
@@ -36,6 +36,7 @@
             </ol>
           </div>
         </div>
+        <div class="start" id="start">START</div>
       </div>
 
       <div class="bomb-container">
@@ -49,13 +50,43 @@
           />
           <audio
             id="bomb-sound"
-            src="./beep-sound.mp3"
+            src="./Materials/beep-sound.mp3"
             style="display: none"
           ></audio>
         </div>
       </div>
     </div>
 
+    <!-- Profile Card -->
+    <div class="profile-card" id="profile-card">
+      <div class="profile-header">
+        <h2>Player Profile</h2>
+        <button id="close-profile">&times;</button>
+      </div>
+      <div class="profile-content">
+        <img
+          src="https://i.postimg.cc/V6NMbByG/profile.webp"
+          alt="Profile Picture"
+        />
+        <h3 id="player-name">Sundra Bomjan</h3>
+        <p>Best Score: <span id="profile-score">102</span></p>
+        <p>Games Played: <span id="games-played">19</span></p>
+      </div>
+    </div>
+
     <script type="module" src="main.js"></script>
+    <script>
+      const profileBtn = document.getElementById("profile-btn");
+      const profileCard = document.getElementById("profile-card");
+      const closeProfile = document.getElementById("close-profile");
+
+      profileBtn.addEventListener("click", () => {
+        profileCard.classList.add("show");
+      });
+
+      closeProfile.addEventListener("click", () => {
+        profileCard.classList.remove("show");
+      });
+    </script>
   </body>
 </html>
