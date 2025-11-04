@@ -107,7 +107,7 @@ By completing this project, the following learning outcomes were achieved:
 
 ## Screenshot
 
-![Game Screenshot](./Materials/screenshot.png)
+![Game Screenshot](https://i.postimg.cc/gcfw7YPn/Screenshot-from-2025-11-04-15-55-21.png)
 
 ---
 
