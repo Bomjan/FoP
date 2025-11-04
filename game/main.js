@@ -9,6 +9,10 @@ const beep = document.getElementById("bomb-sound");
 const question = document.getElementById("question");
 const options = document.getElementById("options");
 
+highestScore.textContent = localStorage.getItem("highestScore") || 0;
+
+const optionsArray = Array.from(options.children);
+
 // Because it would be so stupid to repeat everytime, and a mess.
 // This images are directly from postimages, cloud gallery.
 const imageUrls = {
@@ -29,8 +33,9 @@ let timeLeft = 10;
 
 start.addEventListener("click", () => {
   gameReset();
-  // to start the wiggling of bomb image. see style.css for this animation implementation
+  // don't worry, this will just start wiggling animation lol
   bomb.classList.add("started");
+
   beep.currentTime = 0; // because the beep is being stopped anytime, it is necessary to start from the beginning
   beep.play();
   counter(timeLeft);
@@ -62,7 +67,7 @@ const counter = (time) => {
   }
 };
 
-// 🎯 Ask question
+// get random question from that rediculous long list of questions.
 const ask = () => {
   if (questionIndex >= totalQuestions) {
     endGame(true);
@@ -70,14 +75,20 @@ const ask = () => {
   }
 
   const randomQ = mcqQuestions[Math.floor(Math.random() * mcqQuestions.length)];
+  // because mcqQuestion is a list of objects, therefore we can destructure to grab multiple values in a line.
   const { question: q, options: opt, answer } = randomQ;
+
+  // Here is an example how someone would do, but i don't prefer this when i have shorter and smarter one.
+  // const q = randomQ.question;
+  // const opt = randomQ.options;
+  // const answer = randomQ.answer;
 
   question.textContent = q;
   currentProgress.textContent = `${questionIndex + 1} / ${totalQuestions}`;
 
-  for (let i = 0; i < 4; i++) {
-    const choice = options.children[i];
-    choice.textContent = opt[i];
+  // assign options to choices directly
+  optionsArray.forEach((choice, index) => {
+    choice.textContent = opt[index]; // set the text from opt array
     choice.onclick = () => {
       if (choice.textContent === answer) {
         score++;
@@ -85,10 +96,9 @@ const ask = () => {
       questionIndex++;
       ask();
     };
-  }
+  });
 };
 
-// 💣 End game
 const endGame = (completed) => {
   clearTimeout(timerID);
   beep.pause();
@@ -101,6 +111,7 @@ const endGame = (completed) => {
     setTimeout(() => (bomb.src = imageUrls.explodedImage), 1000);
   }
 
+  // modify the highest score only if the player breaks the highest score
   if (score > parseInt(highestScore.textContent)) {
     highestScore.textContent = score;
     localStorage.setItem("highestScore", score);
@@ -108,12 +119,6 @@ const endGame = (completed) => {
 
   question.textContent = `Your Score: ${score}/${totalQuestions}`;
   currentProgress.textContent = "Game Over";
-};
 
-// // 🏆 Load stored high score
-window.addEventListener("load", () => {
-  const savedScore = localStorage.getItem("highestScore");
-  if (savedScore) {
-    highestScore.textContent = savedScore;
-  }
-});
+  optionsArray.forEach((choice) => (choice.onclick = null));
+};
