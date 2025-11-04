@@ -1,4 +1,4 @@
-<h1 style="align: center;">Bomb Diffuser Game</h1>
+# Bomb Diffuser Game
 
 > **Gyalpozhing College of Information Technology**  
 > Fundamentals of Programming — JavaScript Interactive Game — CA2,
