@@ -585,3 +585,5 @@ export const mcqQuestions = [
     answer: "Sam",
   },
 ];
+
+// Haha, you got me till the end. So now you know all correct answers are option A > <
