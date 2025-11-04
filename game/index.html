@@ -12,9 +12,7 @@
         <ul>
           <li>Bomb Diffuser</li>
           <li>Highest Score: <span id="highest-score">0</span></li>
-          <li id="profile-btn" style="cursor: pointer; user-select: none">
-            Profile
-          </li>
+          <li style="cursor: pointer; user-select: none">Profile</li>
         </ul>
       </nav>
     </header>
@@ -29,10 +27,10 @@
           <div class="question" id="question">Please start the game</div>
           <div class="choices">
             <ol id="options">
-              <li>A</li>
-              <li>B</li>
-              <li>C</li>
-              <li>D</li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
             </ol>
           </div>
         </div>
@@ -46,7 +44,6 @@
             id="bomb-image"
             src="https://i.postimg.cc/SK7SmnbW/timebomb.png"
             alt="Bomb"
-            class="not-exploded"
           />
           <audio
             id="bomb-sound"
@@ -57,36 +54,6 @@
       </div>
     </div>
 
-    <!-- Profile Card -->
-    <div class="profile-card" id="profile-card">
-      <div class="profile-header">
-        <h2>Player Profile</h2>
-        <button id="close-profile">&times;</button>
-      </div>
-      <div class="profile-content">
-        <img
-          src="https://i.postimg.cc/V6NMbByG/profile.webp"
-          alt="Profile Picture"
-        />
-        <h3 id="player-name">Sundra Bomjan</h3>
-        <p>Best Score: <span id="profile-score">102</span></p>
-        <p>Games Played: <span id="games-played">19</span></p>
-      </div>
-    </div>
-
     <script type="module" src="main.js"></script>
-    <script>
-      const profileBtn = document.getElementById("profile-btn");
-      const profileCard = document.getElementById("profile-card");
-      const closeProfile = document.getElementById("close-profile");
-
-      profileBtn.addEventListener("click", () => {
-        profileCard.classList.add("show");
-      });
-
-      closeProfile.addEventListener("click", () => {
-        profileCard.classList.remove("show");
-      });
-    </script>
   </body>
 </html>
