@@ -105,4 +105,12 @@ By completing this project, the following learning outcomes were achieved:
 
 ---
 
+## Screenshot
+
+![Game Screenshot](./Materials/screenshot.png)
+
+---
+
 ### Thank You <3
+
+---
