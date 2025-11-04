@@ -1,8 +1,12 @@
 <h1 style="text-align: center;">Bomb Diffuser Game</h1>
 
 > **Gyalpozhing College of Information Technology**  
-> Fundamentals of Programming — JavaScript Interactive Game — CA2
+> Fundamentals of Programming — JavaScript Interactive Game — CA2,
 > Developed by **Sundra Bomjan** SOC C
+
+![HTML](https://img.shields.io/badge/HTML5-orange?logo=html5)
+![CSS](https://img.shields.io/badge/CSS3-blue?logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript)
 
 ---
 
