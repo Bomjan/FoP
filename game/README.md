@@ -1,10 +1,10 @@
-# 💣 Bomb Diffuser Game
+# Bomb Diffuser Game
 
 A fast-paced, brain-ticking JavaScript game where you race against time to answer questions and stop the bomb before it explodes!
 
 ---
 
-## 🧠 Gameplay
+## Gameplay
 
 - You’ll be presented with random multiple-choice questions.
 - Each correct answer diffuses part of the bomb and adds to your score.
@@ -13,7 +13,7 @@ A fast-paced, brain-ticking JavaScript game where you race against time to answe
 
 ---
 
-## 🎮 Features
+## Features
 
 ✅ Dynamic Question System  
 ✅ Real-time Timer Countdown  
@@ -21,7 +21,7 @@ A fast-paced, brain-ticking JavaScript game where you race against time to answe
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 - **HTML5**
 - **CSS3**
@@ -35,7 +35,7 @@ A fast-paced, brain-ticking JavaScript game where you race against time to answe
 
 ---
 
-## ⚙️ How to Run
+## How to Run?
 
 1. Clone this repository or download the source files.
 2. Open `index.html` in your browser.
@@ -43,7 +43,7 @@ A fast-paced, brain-ticking JavaScript game where you race against time to answe
 
 ---
 
-## 🧑‍💻 Developer Notes
+## Developer Notes
 
 This project demonstrates clean JavaScript logic, modular code structure, and DOM manipulation techniques including:
 
