@@ -7,15 +7,17 @@
 // * Returns an array with updated salaries after adding 10% bonus to eligible employees.
 // * Prints the updated salaries
 
-const applyBonus = (salaries) => {
-  let updated = [];
-  for (let salary of salaries) {
-    updated.push(salary > 50000 ? salary : salary * 1.1);
+const applyBonus = (arr) => {
+  let updatedArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let val = arr[i] > 50000 ? arr[i] : arr[i] * 1.1;
+    updatedArr[i] = val;
   }
-  console.log(updated);
+  return updatedArr;
 };
 
-applyBonus([40000, 55000, 30000, 60000]);
+let bonus = applyBonus([40000, 55000, 30000, 60000]);
+console.log(bonus);
 
 // Explaination:
 // the function creates an empty array to store updated values. then the loop iterates over the salaries and appends inside the array conditionally like only if salary is less than 50000, we multiply with 1.1 because that adds 10% to the initial amount.

@@ -1,14 +1,6 @@
-const personProto = {
-  init(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
-  },
+function myFun() {
+  console.log("HI");
+}
 
-  calcAge() {
-    console.log("Bro");
-  },
-};
-
-const me = Object.create(personProto);
-me.init("Okay", 5678);
-console.log(me);
+console.log(Object.getPrototypeOf(myFun) === Function.prototype);
+console.log(Object.getPrototypeOf(myFun));
