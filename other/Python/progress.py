@@ -15,7 +15,7 @@ def flowing_ascii_bar(progress, total, length=50):
   sys.stdout.flush()
 
 user = input("Enter your age: ")
-# Demo
+
 total = 581
 for i in range(total + 1):
   flowing_ascii_bar(i, total)
