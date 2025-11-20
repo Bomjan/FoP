@@ -24,15 +24,15 @@ class Car {
 // car2.displayInfo();
 // car2.age(2025);
 
-while (true) {
-  console.clear();
-  let hour = new Date().getHours();
-  let min = new Date().getMinutes();
-  let seconds = new Date().getSeconds();
-  let mils = new Date().getMilliseconds();
-  setTimeout(() => console.log(`${hour} : ${min} : ${seconds} : ${mils}`), 1);
-}
-
+// while (true) {
+//   console.clear();
+//   let hour = new Date().getHours();
+//   let min = new Date().getMinutes();
+//   let seconds = new Date().getSeconds();
+//   let mils = new Date().getMilliseconds();
+//   setTimeout(() => console.log(`${hour} : ${min} : ${seconds} : ${mils}`), 1);
+// }
+//
 // class Rectangle {
 //   constructor(w, h) {
 //     this.width = w;
