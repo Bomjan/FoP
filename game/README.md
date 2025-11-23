@@ -55,12 +55,12 @@ This project demonstrates mastery of:
 
 ### Key Features
 
-✅ **Randomized Questions** — Questions are selected randomly from a pool of 100+  
-✅ **Shuffled Answers** — Fisher-Yates algorithm ensures answer positions are unpredictable  
-✅ **Dynamic Timer** — Countdown with visual tension (critical state at <10 seconds)  
-✅ **Pulse Animation** — Bomb pulses faster as time runs out  
-✅ **High Score Tracking** — Persistent storage using `localStorage`  
-✅ **Responsive Design** — Clean, polished UI with smooth interactions  
+- **Randomized Questions** — Questions are selected randomly from a pool of 100+
+- **Shuffled Answers** — Fisher-Yates algorithm ensures answer positions are unpredictable
+- **Dynamic Timer** — Countdown with visual tension (critical state at <10 seconds)
+- **Pulse Animation** — Bomb pulses faster as time runs out
+- **High Score Tracking** — Persistent storage using `localStorage`
+- **Responsive Design** — Clean, polished UI with smooth interactions  
 
 ---
 
