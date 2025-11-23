@@ -57,16 +57,18 @@ header nav ul li span {
 .questions {
   background: #252421;
   border-radius: 12px;
-  padding: 40px 25px;
+  padding: 45px 30px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2f2e2b;
 }
 
 .question {
   color: #e9e6e1;
   font-size: 22px;
   font-weight: 500;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .choices ol {
@@ -81,18 +83,25 @@ header nav ul li span {
   width: 80%;
   background: #2e2d2b;
   border-radius: 8px;
-  padding: 12px 0;
+  padding: 14px 20px;
   color: #e9e6e1;
   font-size: 17px;
   font-weight: 500;
   border: 1px solid #3c3a35;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
   user-select: none;
+  cursor: pointer;
+}
+
+.choices li:hover {
+  background: #3a3835;
+  border-color: #d8a85f;
 }
 
 .choices li:active {
   background: #d8a85f;
   color: #1a1a1a;
+  transform: scale(0.98);
 }
 
 .start {
@@ -101,12 +110,24 @@ header nav ul li span {
   font-size: 18px;
   font-weight: 700;
   text-align: center;
-  padding: 14px 0;
+  padding: 16px 0;
   border-radius: 30px;
   user-select: none;
   cursor: pointer;
   margin-top: 10px;
   border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(216, 168, 95, 0.3);
+}
+
+.start:hover {
+  background: #e0b56f;
+  box-shadow: 0 6px 20px rgba(216, 168, 95, 0.4);
+}
+
+.start:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(216, 168, 95, 0.3);
 }
 
 .bomb-container {
@@ -119,41 +140,40 @@ header nav ul li span {
 }
 
 .bomb-container .timer {
-  font-size: 26px;
+  font-family: "Courier New", Courier, monospace; /* Digital look */
+  font-size: 28px;
   font-weight: 700;
-  color: #d8a85f;
+  color: #d8a85f; /* Original gold color */
+  background: #232220; /* Original dark background */
   padding: 14px 36px;
   border-radius: 10px;
-  background: #232220;
-  border: 1px solid #3a382f;
+  border: 1px solid #3a382f; /* Original border */
   margin-bottom: 60px;
+  box-shadow: 0 0 15px rgba(216, 168, 95, 0.3); /* Subtle gold glow */
+  text-shadow: 0 0 8px rgba(216, 168, 95, 0.6);
 }
 
 .bomb img {
   width: 400px;
   border-radius: 18px;
+  transition: filter 0.3s ease, transform 0.1s ease;
 }
 
-/* you know it, this class being added or removed from  js. */
-/* This class is added if the timer starts, and stops when the timer stops. */
+/* Pulse animation for the bomb */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
 
 .started {
-  animation: wiggle 0.5s ease-in-out infinite;
+  animation: pulse 1s infinite;
 }
-@keyframes wiggle {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(15deg);
-  }
-  50% {
-    transform: rotate(-15deg);
-  }
-  75% {
-    transform: rotate(15deg);
-  }
+
+/* Critical state - intense red glow */
+.critical-state img {
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+  animation: pulse 0.5s infinite; /* Faster pulse */
 }
 
 /**

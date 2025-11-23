@@ -45,6 +45,8 @@ start.addEventListener("click", () => {
 const gameReset = () => {
   clearTimeout(timerID);
   bomb.src = imageUrls.timeBomb;
+  bomb.parentElement.classList.remove("critical-state"); // Remove critical state
+  bomb.style.animationDuration = "1s"; // Reset animation speed
   questionIndex = 0;
   score = 0;
   timeLeft = 20;
@@ -60,11 +62,29 @@ const counter = (time) => {
     seconds
   ).padStart(2, "0")}`;
 
+  // Visual tension logic
+  if (time <= 10) {
+    bomb.parentElement.classList.add("critical-state");
+    // Speed up the pulse as time runs out
+    const duration = Math.max(0.2, time / 20); // Scale from 0.5s down to 0.2s roughly
+    bomb.style.animationDuration = `${duration}s`;
+  }
+
   if (time === 0) {
     endGame(false);
   } else {
     timerID = setTimeout(() => counter(time - 1), 1000);
   }
+};
+
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 };
 
 // get random question from that rediculous long list of questions.
@@ -78,19 +98,24 @@ const ask = () => {
   // because mcqQuestion is a list of objects, therefore we can destructure to grab multiple values in a line.
   const { question: q, options: opt, answer } = randomQ;
 
-  // Here is an example how someone would do, but i don't prefer this when i have shorter and smarter one.
-  // const q = randomQ.question;
-  // const opt = randomQ.options;
-  // const answer = randomQ.answer;
-
   question.textContent = q;
   currentProgress.textContent = `${questionIndex + 1} / ${totalQuestions}`;
 
-  // assign options to choices directly
+  // Create array of option objects with correct answer flag
+  const optionsWithCorrectFlag = opt.map((text) => ({
+    text,
+    isCorrect: text === answer,
+  }));
+
+  // Shuffle the options
+  const shuffledOptions = shuffleArray(optionsWithCorrectFlag);
+
+  // assign shuffled options to choices
   optionsArray.forEach((choice, index) => {
-    choice.textContent = opt[index]; // set the text from opt array
+    const option = shuffledOptions[index];
+    choice.textContent = option.text;
     choice.onclick = () => {
-      if (choice.textContent === answer) {
+      if (option.isCorrect) {
         score++;
       }
       questionIndex++;
@@ -103,6 +128,7 @@ const endGame = (completed) => {
   clearTimeout(timerID);
   beep.pause();
   bomb.classList.remove("started");
+  bomb.parentElement.classList.remove("critical-state");
 
   if (completed && score === totalQuestions) {
     bomb.src = imageUrls.congratulations;
