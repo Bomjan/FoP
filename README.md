@@ -1,6 +1,5 @@
 # Fundamentals of Programming
-
-> **Gyalpozhing College of Information Technology**  
+> **Gyalpozhing College of Information Technology**
 > Developed by **Sundra Bomjan** | SOC C
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
@@ -11,170 +10,80 @@
 
 ---
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Repository Structure](#repository-structure)
-- [Featured Project](#featured-project)
-- [Assignments](#assignments)
-- [Question Papers](#question-papers)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [License](#license)
-
----
-
 ## Overview
 
-This repository contains all coursework, assignments, continuous assessments (CA), and solved question papers for the **Fundamentals of Programming** course at Gyalpozhing College of Information Technology.
+Welcome to my academic portfolio for the **Fundamentals of Programming** course. This repository documents my journey through learning various programming paradigms, languages, and problem-solving techniques.
 
-The repository demonstrates proficiency in:
-- **JavaScript** programming and DOM manipulation
-- **HTML/CSS** for web development
-- **Python** scripting and problem-solving
-- **SQL** database queries and design
-- Algorithm implementation and data structures
-- Interactive game development
+It serves as a central hub for all my:
+- **Classworks**: Daily exercises and concept explorations.
+- **Assignments**: Graded tasks and larger implementations.
+- **Projects**: Major applications demonstrating integrated skills.
+- **Exams**: Solutions to practical tests and assessments.
 
 ---
 
 ## Repository Structure
 
+The repository is organized by technology and topic to provide a clear learning path.
+
 ```
 FOP/
-├── game/                    # Bomb Diffuser Game (CA2 Project)
-│   ├── index.html
-│   ├── style.css
-│   ├── main.js
-│   ├── questions.js
-│   ├── Materials/
-│   └── README.md
+├── 01-JavaScript/           # The core of the course
+│   ├── 01-Classworks/       # Daily practice files with educational notes
+│   └── 02-Assignments/      # Graded assignments (1-8)
 │
-├── javascript/              # JavaScript Assignments
-│   ├── assignment1/
-│   ├── assignment2/
-│   ├── assignment3/
-│   ├── assignment4/
-│   ├── assignment5/
-│   ├── assignment6/
-│   ├── assignment7/
-│   ├── assignment8/
-│   └── classworks/
+├── 02-Python/               # Python scripting and automation
 │
-├── papers/                  # Solved Question Papers
-│   ├── 2024_practical_test/
-│   ├── ca3/
-│   └── mock_test/
+├── 03-SQL/                  # Database design and queries
 │
-└── other/                   # Additional Projects
-    ├── JavaScript/
-    ├── Python/
-    └── project.sql
+├── 04-Exams/                # Practical tests and CA solutions
+│
+└── 05-Projects/             # Major applications
+    └── Bomb-Diffuser-Game/  # Interactive JS Game (CA2)
 ```
 
 ---
 
-## Featured Project
+## Key Highlights
 
-### [Bomb Diffuser Game](./game)
+### 1. JavaScript Journey (`01-JavaScript`)
+This section covers everything from the basics to advanced concepts.
+- **Basics**: Loops, Arrays, Functions (See `01-Classworks/` for detailed notes).
+- **DOM Manipulation**: Interactive web pages.
+- **Object-Oriented Programming**: Classes, Objects, and Inheritance.
 
-An adrenaline-pumping, timed multiple-choice quiz game built with HTML, CSS, and JavaScript for CA2.
+### 2. Bomb Diffuser Game (`05-Projects`)
+A fully interactive, timed quiz game built for Continuous Assessment 2.
+- **Features**: Timer, randomized questions, high scores.
+- **Tech**: HTML, CSS, Vanilla JavaScript.
+- [View Game Folder](./05-Projects/Bomb-Diffuser-Game)
 
-**Key Features:**
-- 100+ randomized questions across multiple topics
-- Fisher-Yates shuffle algorithm for fair gameplay
-- Dynamic countdown timer with visual effects
-- High score tracking with localStorage
-- Responsive design with polished animations
-
-**[View Game README →](./game/README.md)**
-
----
-
-## Assignments
-
-### JavaScript Assignments
-
-Located in the [`javascript/`](./javascript) directory:
-
-| Assignment | Description |
-|------------|-------------|
-| **Assignment 1** | Introduction to JavaScript basics |
-| **Assignment 2** | Control structures and loops |
-| **Assignment 3** | Functions and scope |
-| **Assignment 4** | Arrays and objects |
-| **Assignment 5** | DOM manipulation |
-| **Assignment 6** | Event handling |
-| **Assignment 7** | Advanced JavaScript concepts |
-| **Assignment 8** | Final integration project |
-| **Classworks** | In-class exercises and practice problems |
-
----
-
-## Question Papers
-
-Located in the [`papers/`](./papers) directory:
-
-- **2024 Practical Test** - Solved practical examination questions
-- **CA3** - Continuous Assessment 3 solutions
-- **Mock Test** - Practice test solutions and preparation materials
-
----
-
-## Technologies Used
-
-### Frontend Development
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Styling, animations, and responsive design
-- **JavaScript (ES6+)** - Interactive functionality and game logic
-
-### Backend & Database
-- **Python** - Scripting and problem-solving
-- **SQL** - Database queries and design
-
-### Tools & Concepts
-- DOM Manipulation
-- Event-driven programming
-- Local Storage API
-- Algorithm implementation (Fisher-Yates shuffle)
-- Modular code architecture
+### 3. Python & SQL (`02-Python`, `03-SQL`)
+Exploration of backend technologies, scripting, and database management.
 
 ---
 
 ## Getting Started
 
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Text editor or IDE (VS Code recommended)
-- Basic understanding of HTML, CSS, and JavaScript
+To explore the code:
 
-### Running the Bomb Diffuser Game
-
-1. Navigate to the game directory:
+1. **Clone the repository**:
    ```bash
-   cd game
+   git clone https://github.com/Bomjan/FoP.git
    ```
 
-2. Open `index.html` in your browser:
+2. **Navigate to a section**:
    ```bash
-   # On Linux
-   xdg-open index.html
-   
-   # On macOS
-   open index.html
-   
-   # On Windows
-   start index.html
+   cd 01-JavaScript/01-Classworks
    ```
 
-3. Or simply double-click `index.html` to launch the game
+3. **Run JavaScript files** (using Node.js):
+   ```bash
+   node arrays.js
+   ```
 
-### Exploring Assignments
-
-Browse the [`javascript/`](./javascript) directory to view individual assignments. Each assignment folder contains:
-- Source code files
-- Problem statements (where applicable)
-- Implementation notes
+4. **Open Web Projects**:
+   Simply open the `index.html` file in any browser.
 
 ---
 
