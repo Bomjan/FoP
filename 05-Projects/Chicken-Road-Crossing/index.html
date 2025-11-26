@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chicken Road Crossing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header>
+        <h1>Chicken Road Crossing</h1>
+        <h2 id="game-over"></h2>
+        <button id="startBtn">Start</button>
+        <button id="instructionsBtn">Instructions</button>
+      </header>
+      
+      <!-- Instructions Panel -->
+      <div id="instructionsPanel" class="instructions-panel hidden">
+        <h3>How to Play</h3>
+        <div class="instructions-content">
+          <div class="instruction-item">
+            <strong>Objective:</strong> Help the chicken cross the road safely and reach the top!
+          </div>
+          <div class="instruction-item">
+            <strong>Controls:</strong>
+            <ul>
+              <li><kbd>↑</kbd> Arrow Up - Move up</li>
+              <li><kbd>↓</kbd> Arrow Down - Move down</li>
+              <li><kbd>←</kbd> Arrow Left - Move left</li>
+              <li><kbd>→</kbd> Arrow Right - Move right</li>
+            </ul>
+          </div>
+          <div class="instruction-item">
+            <strong>Scoring:</strong> Reach the top to earn 50 points and advance to the next level!
+          </div>
+          <div class="instruction-item">
+            <strong>Lives:</strong> You have 3 lives. Avoid the cars or lose a life!
+          </div>
+          <div class="instruction-item">
+            <strong>Difficulty:</strong> Cars get faster as you level up. Good luck!
+          </div>
+        </div>
+      </div>
+      <!-- canvas where the preceding game is drawn -->
+      <canvas id="gameCanvas" width="900" height="500"></canvas>
+
+      <div class="stats">
+        <div>Score: <span id="score">0</span></div>
+        <div>High Score: <span id="highScore">0</span></div>
+        <div>Lives: <span id="lives">3</span></div>
+        <div>Level: <span id="level">1</span></div>
+      </div>
+    </div>
+
+    <!-- Preload Images -->
+    <img src="./assets/road.png" id="roadImg" class="hidden" />
+    <img src="./assets/nik-clean.png" id="playerImg" class="hidden" />
+    <img src="./assets/whitecar-clean.png" id="carRedImg" class="hidden" />
+    <img src="./assets/redcar-clean.png" id="carBlueImg" class="hidden" />
+
+    <script src="script.js"></script>
+  </body>
+</html>

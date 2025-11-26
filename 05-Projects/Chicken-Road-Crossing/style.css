@@ -1,0 +1,257 @@
+/* Reset default browser styles to ensure consistency across all browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main body styling with a clean, professional background */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #1e293b;
+  padding: 20px;
+}
+
+/* Container that holds all game elements with a clean white card design */
+.game-container {
+  text-align: center;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 960px;
+  width: 100%;
+}
+
+/* Header section containing the title and game over message */
+header {
+  margin-bottom: 20px;
+}
+
+/* Game title with a gradient text effect for visual appeal */
+header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Game over message that appears when the player loses all lives */
+header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: #ef4444;
+  min-height: 32px;
+}
+
+/* Shared styling for both Start and Instructions buttons */
+#startBtn,
+#instructionsBtn {
+  background: #667eea;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+  margin: 0 6px;
+  font-family: inherit;
+}
+
+/* Hover effect for buttons - subtle darkening on hover */
+#startBtn:hover,
+#instructionsBtn:hover {
+  background: #5568d3;
+}
+
+/* Active state when buttons are clicked */
+#startBtn:active,
+#instructionsBtn:active {
+  opacity: 0.9;
+}
+
+/* Instructions button gets a different color to distinguish it from Start */
+#instructionsBtn {
+  background: #64748b;
+  box-shadow: 0 2px 8px rgba(100, 116, 139, 0.2);
+}
+
+/* Instructions button hover effect with darker shade */
+#instructionsBtn:hover {
+  background: #475569;
+}
+
+/* Panel that displays game instructions - toggleable by clicking the Instructions button */
+.instructions-panel {
+  background: #f8fafc;
+  color: #1e293b;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  animation: slideDown 0.3s ease-out;
+  border: 1px solid #e2e8f0;
+}
+
+/* Hidden state for the instructions panel */
+.instructions-panel.hidden {
+  display: none;
+}
+
+/* Title for the instructions panel */
+.instructions-panel h3 {
+  margin: 0 0 20px;
+  color: #667eea;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Container for all instruction items using a grid layout */
+.instructions-content {
+  display: grid;
+  gap: 14px;
+}
+
+/* Individual instruction item with a card-like appearance */
+.instruction-item {
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 3px solid #667eea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Labels for each instruction section like "Objective", "Controls", etc. */
+.instruction-item strong {
+  color: #667eea;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* List of controls within the instructions */
+.instruction-item ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+/* Individual list items for each control instruction */
+.instruction-item li {
+  margin: 6px 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Styling for keyboard keys to make them look like actual keyboard buttons */
+kbd {
+  background: #1e293b;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Animation for the instructions panel sliding down smoothly when shown */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Game canvas where the actual gameplay happens */
+canvas {
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  margin-top: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+}
+
+/* Stats section displaying score, high score, lives, and level */
+.stats {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+/* Individual stat cards with solid backgrounds */
+.stats div {
+  background: #667eea;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+
+
+/* The actual numbers displayed in each stat card */
+.stats span {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 4px;
+  letter-spacing: -0.5px;
+}
+
+/* Special styling for the high score to make it stand out with a golden glow */
+.stats #highScore {
+  color: #fbbf24;
+  text-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+
+/* Hide the preloaded images that are used in the canvas */
+img.hidden {
+  display: none;
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 960px) {
+  /* Reduce padding on smaller screens to maximize space */
+  .game-container {
+    padding: 20px;
+  }
+  
+  /* Make the canvas responsive so it fits on mobile devices */
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Switch stats to a 2-column layout on smaller screens */
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
