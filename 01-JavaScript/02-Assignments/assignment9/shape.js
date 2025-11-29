@@ -12,16 +12,16 @@ class Shape {
   }
 }
 
-// c
+// // c
 // const square = new Shape("square", 4, 5);
 
-// d
+// // d
 // console.log(square.calcPerimeter());
 
-// e
+// // e
 // const triangle = new Shape("triangle", 3, 3);
 
-// f
+// // f
 // console.log(triangle.calcPerimeter());
 
 // TODO Challenge 2
@@ -61,20 +61,20 @@ class Course {
 }
 
 const fop = new Course("Fundamentals of Programming", 14, 150000);
-// console.log(fop);
+console.log(fop);
 
 const fed = new Course("Frontend Web Development", 16, 200000);
-// console.log(fed);
+console.log(fed);
 
 // * Task 2
-// fop.lengthPerPrice = function () {
-//   return this.length / this.price;
-// };
-// fop.summarize = function () {
-//   return `${this.title} is one of the best courses which is ${this.length} weeks long and it is only Nu.${this.price}`;
-// };
-// console.log(fop.lengthPerPrice());
-// console.log(fop.summarize());
+fop.lengthPerPrice = function () {
+  return this.length / this._price;
+};
+fop.summarize = function () {
+  return `${this.title} is one of the best courses which is ${this.length} weeks long and it is only Nu.${this.price}`;
+};
+console.log(fop.lengthPerPrice());
+console.log(fop.summarize());
 
 // * Task 3
 class PracticalCourse extends Course {
