@@ -50,7 +50,11 @@ function runPatientRegistrationSystem() {
         let age = prompt("Enter patient age: ");
         let cond = prompt("Enter patient medical condition: ");
 
-        registerPatient(name, age, cond);
+        if (!isNaN(name)) {
+          alert("Got Error");
+        } else {
+          registerPatient(name, age, cond);
+        }
         break;
 
       case "2":
