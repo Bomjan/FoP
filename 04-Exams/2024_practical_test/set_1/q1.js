@@ -31,27 +31,7 @@ const listStudents = () => {
   if (students.length == 0) {
     console.log("The list is empty");
   } else {
-    // create a table
-    let table = [];
-
-    // headers
-    let cols = [];
-    for (let col in students[0]) {
-      cols.push(col);
-    }
-    table.push(cols);
-
-    // actual vlaues inside each row
-    students.forEach((std) => {
-      let row = [];
-      for (let key in std) {
-        row.push(std[key]);
-      }
-      table.push(row);
-    });
-
-    // convert to table
-    console.table(table);
+    console.table(students);
   }
 };
 
